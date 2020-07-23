@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, CardImg, CardBody, CardText, CardTitle } from 'reactstrap';
 
 // Task 3
