@@ -3,7 +3,7 @@ import { Card, CardImg, CardBody,CardText, Button, Modal, ModalHeader, ModalBody
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
-function RenderComments({comments}) {
+function RenderComments({comments, addComment, dishID}) {
     if (comments == null) {
         return (<div></div>)
     }  
@@ -28,9 +28,7 @@ function RenderComments({comments}) {
                 <ul className="list-unstyled">
                     {commts}
                 </ul>
-                <CommentForm>
-
-                </CommentForm>
+                <CommentForm dishID={dishID} addComment={addComment} />
             </div>
     );
 }
@@ -77,7 +75,7 @@ const Dishdetail = (props) => {
                     <RenderDish dish={props.dish}/>
                 </div>
                 <div className="col-12 col-md-5 m-1">
-                    <RenderComments comments={props.comments}/>
+                    <RenderComments comments={props.comments} addComment={props.addComment} dishID={props.dish.id} />
                 </div>            
             </div>
         </div>
@@ -89,7 +87,7 @@ const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length < len);
 const minLength = (len) => (val) => val && (val.length >= len);
 
-export class CommentForm extends Component {
+class CommentForm extends Component {
     constructor(props) {
         super(props);
         
@@ -109,8 +107,7 @@ export class CommentForm extends Component {
 
     handleSubmit(values) {
         this.toggleModal();
-        console.log('Current state is: ' + JSON.stringify(values));
-        alert('Current state is: ' + JSON.stringify(values));
+        this.props.addComment(this.props.dishID, values.rating, values.author, values.comment);
     }
 
     render() {
