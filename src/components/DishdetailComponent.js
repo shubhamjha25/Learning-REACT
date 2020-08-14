@@ -6,6 +6,7 @@ import { Loading } from "./LoadingComponent";
 import { baseUrl } from '../shared/baseUrl';
 import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
+// Function to Render Comments
 function RenderComments({comments, postComment, dishID}) {
     if (comments == null) {
         return (<div></div>)
@@ -40,6 +41,7 @@ function RenderComments({comments, postComment, dishID}) {
     );
 }
 
+// Rendering Dish
 function RenderDish({dish}) {
     if (dish != null) {
         return(
@@ -64,7 +66,7 @@ function RenderDish({dish}) {
     }
 }
 
-
+// Dishdetail Component
 const Dishdetail = (props) => {
     const dish = props.dish;
     if(props.isLoading) {

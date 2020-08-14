@@ -3,6 +3,7 @@ import { Breadcrumb, BreadcrumbItem, Button, Label, Row, Col } from 'reactstrap'
 import { Link } from 'react-router-dom';
 import { Control, Form, Errors, actions } from 'react-redux-form';
 
+// Applying Form Validation
 const required = val => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => (val) && (val.length >= len);

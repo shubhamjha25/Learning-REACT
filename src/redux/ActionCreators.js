@@ -42,6 +42,7 @@ export const postComment = (dishId, rating, author, comment) => (dispatch) => {
         alert('Your comment could not be posted\nError: '+error.message); });
 };
 
+// Dishes
 export const fetchDishes = () => (dispatch) => {
     dispatch(dishesLoading(true));
 
@@ -79,6 +80,7 @@ export const addDishes = (dishes) => ({
     payload: dishes
 });
 
+// Comments
 export const fetchComments = () => (dispatch) => {    
     return fetch(baseUrl + 'comments')
     .then(response => {
@@ -111,6 +113,7 @@ export const addComments = (comments) => ({
     payload: comments
 });
 
+// PROMOS
 export const fetchPromos = () => (dispatch) => {
     dispatch(promosLoading());
 
@@ -148,7 +151,7 @@ export const addPromos = (promos) => ({
     payload: promos
 });
 
-//LEADERS
+// LEADERS
 export const fetchLeaders = () => (dispatch) => {
   dispatch(leadersLoading(true));
 

@@ -5,6 +5,7 @@ import { Loading } from "./LoadingComponent";
 import { baseUrl } from '../shared/baseUrl';
 import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
+// Rendering Leaders
 function RenderLeader({leader}) {
     return(
         <Fade in>
@@ -32,6 +33,7 @@ function About(props) {
         );
     });
 
+    // Render Leader From Server (Fetch From Server)
     function RenderLeaderServer() {
 
         if (props.leaders.isLoading) {
